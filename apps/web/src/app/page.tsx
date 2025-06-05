@@ -1,4 +1,4 @@
-import GetTest from "./components/get-test";
+import GetTest from "@/components/common/get-test";
 
 export default function Home() {
   return (

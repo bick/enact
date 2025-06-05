@@ -1,5 +1,5 @@
 {
-  "extends": "@monorepo/tsconfig/utils.json",
+  "extends": "@enact/tsconfig/utils.json",
   "include": [
     "src/**/*.ts",
     "eslint.config.mjs"

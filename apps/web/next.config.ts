@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["@monorepo/ui"],
+  transpilePackages: ["@enact/ui"],
 };
 
 export default nextConfig;

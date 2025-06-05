@@ -1,4 +1,4 @@
-import { cn } from "@monorepo/utils/styles";
+import { cn } from "@enact/utils/styles";
 import * as React from "react";
 
 const Table = React.forwardRef<

@@ -1,5 +1,5 @@
 {
-  "name": "@monorepo/utils",
+  "name": "@enact/utils",
   "author": "Ives Furtado | @ivesfurtado",
   "version": "1.0.0",
   "description": "",
@@ -15,8 +15,8 @@
     "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
-    "@monorepo/tsconfig": "workspace:*",
-    "@monorepo/eslint-config": "workspace:*"
+    "@enact/tsconfig": "workspace:*",
+    "@enact/eslint-config": "workspace:*"
   },
   "exports": {
     ".": "./src",

@@ -13,8 +13,8 @@
     "aliases": {
         "components": "src/",
         "ui": "src/",
-        "utils": "@monorepo/utils/styles",
-        "lib": "@monorepo/utils/styles"
+        "utils": "@enact/utils/styles",
+        "lib": "@enact/utils/styles"
     },
     "iconLibrary": "lucide"
 }

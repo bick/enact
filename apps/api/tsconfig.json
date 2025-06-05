@@ -1,5 +1,5 @@
 {
-  "extends": "@monorepo/tsconfig/express.json",
+  "extends": "@enact/tsconfig/express.json",
   "compilerOptions": {
     "outDir": "./dist"
   },

@@ -1,5 +1,5 @@
 {
-  "extends": "@monorepo/tsconfig/ui.json",
+  "extends": "@enact/tsconfig/ui.json",
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",

@@ -1,11 +1,14 @@
 {
-  "extends": "@monorepo/tsconfig/next.json",
+  "extends": "@enact/tsconfig/next.json",
   "compilerOptions": {
     "plugins": [
       {
         "name": "next"
       }
     ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": [
     "next-env.d.ts",

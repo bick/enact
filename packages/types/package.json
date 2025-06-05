@@ -1,5 +1,5 @@
 {
-  "name": "@monorepo/types",
+  "name": "@enact/types",
   "author": "Ives Furtado | @ivesfurtado",
   "version": "1.0.0",
   "keywords": [],
@@ -10,8 +10,8 @@
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {
-    "@monorepo/tsconfig": "workspace:*",
-    "@monorepo/eslint-config": "workspace:*"
+    "@enact/tsconfig": "workspace:*",
+    "@enact/eslint-config": "workspace:*"
   },
   "exports": {
     ".": "./src/index.ts"
