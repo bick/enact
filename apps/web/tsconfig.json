@@ -1,8 +1,21 @@
 {
-  "extends": "@repo/typescript-config/nextjs.json",
+  "extends": "@monorepo/tsconfig/next.json",
   "compilerOptions": {
-    "plugins": [{ "name": "next" }]
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
   },
-  "include": ["next-env.d.ts", "next.config.js", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "tailwind.config.ts",
+    "eslint.config.mjs"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

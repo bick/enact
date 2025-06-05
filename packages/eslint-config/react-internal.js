@@ -1,39 +1,34 @@
-const { resolve } = require("node:path");
+import globals from "globals";
+import tseslint from "typescript-eslint";
 
-const project = resolve(process.cwd(), "tsconfig.json");
+import baseConfig from "./base.js";
 
-/*
- * This is a custom ESLint configuration for use with
- * internal (bundled by their consumer) libraries
- * that utilize React.
- */
-
-/** @type {import("eslint").Linter.Config} */
-module.exports = {
-  extends: ["eslint:recommended", "prettier", "turbo"],
-  plugins: ["only-warn"],
-  globals: {
-    React: true,
-    JSX: true,
-  },
-  env: {
-    browser: true,
-  },
-  settings: {
-    "import/resolver": {
-      typescript: {
-        project,
+/** @type {import("eslint").Linter.Config[]} */
+export default [
+  ...baseConfig,
+  {
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        JSX: true,
+        React: true,
+      },
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+      },
+    },
+    plugins: {
+      "@typescript-eslint": tseslint.plugin,
+    },
+    rules: {
+      "react/prop-types": "off",
+      "react/react-in-jsx-scope": "off",
+    },
+    settings: {
+      react: {
+        version: "detect",
       },
     },
   },
-  ignorePatterns: [
-    // Ignore dotfiles
-    ".*.js",
-    "node_modules/",
-    "dist/",
-  ],
-  overrides: [
-    // Force ESLint to detect .tsx files
-    { files: ["*.js?(x)", "*.ts?(x)"] },
-  ],
-};
+];

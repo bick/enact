@@ -1,75 +1,101 @@
-# Turborepo Docker starter
+# Full Stack Monorepo with Turbopack, Eslint, Next.js, Express.js, Tailwind CSS, and shadcn
 
-This is a community-maintained example. If you experience a problem, please submit a pull request with a fix. GitHub Issues will be closed.
+This repository is a full-stack monorepo starter template that integrates several modern web development tools and libraries, including **Turbopack**, **Eslint**, **Next.js**, **Express.js**, **Tailwind CSS**, and **shadcn**. It follows the tutorial from [The Halftime Code](https://www.thehalftimecode.com/building-a-full-stack-monorepo-with-turbopack-biome-next-js-express-js-tailwind-css-and-shadcn/) on how to set up a full-stack monorepo, combining both frontend and backend services in a single codebase.
 
-## Using this example
+## Features
 
-Run the following command:
+- **Monorepo Architecture**: Organizes both frontend (Next.js) and backend (Express.js) in a single repository using Turbopack to manage and optimize builds.
+- **Next.js**: A powerful React framework for building server-rendered web applications with API routes.
+- **Express.js**: A minimalist Node.js framework for building backend services and REST APIs.
+- **Turbopack**: A fast incremental bundler and build system, ideal for monorepo setups.
+- **Tailwind CSS**: A utility-first CSS framework for building responsive, modern UI components.
+- **shadcn**: A component library that integrates seamlessly with Tailwind CSS, providing elegant UI components.
+- **ESLint**: A fast and versatile tool for linting, formatting, and ensuring code quality across the entire monorepo.
 
-```sh
-npx create-turbo@latest -e with-docker
-```
+## Project Structure
 
-## What's inside?
-
-This Turborepo includes the following:
-
-### Apps and Packages
-
-- `web`: a [Next.js](https://nextjs.org/) app
-- `api`: an [Express](https://expressjs.com/) server
-- `@repo/ui`: a React component library
-- `@repo/logger`: Isomorphic logger (a small wrapper around console.log)
-- `@repo/eslint-config`: ESLint presets
-- `@repo/typescript-config`: tsconfig.json's used throughout the monorepo
-- `@repo/jest-presets`: Jest configurations
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Docker
-
-This repo is configured to be built with Docker, and Docker compose. To build all apps in this repo:
+The monorepo is organized as follows:
 
 ```
-# Install dependencies
-yarn install
+/apps
+  /web (Next.js)
+  /server (Express.js)
 
-# Create a network, which allows containers to communicate
-# with each other, by using their container name as a hostname
-docker network create app_network
-
-# Build prod using new BuildKit engine
-COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose -f docker-compose.yml build
-
-# Start prod in detached mode
-docker-compose -f docker-compose.yml up -d
+/packages
+  /ui (shadcn component library with Tailwind CSS)
+  /tsconfig (Shared configuration files such as Eslint, Tailwind, and Turbopack)
+  /types (Shared types)
+  /ui (Shared UI components and styles)
+  /utils (Shared util methods)
 ```
 
-Open http://localhost:3000.
+- **/apps/web**: Contains the Next.js application responsible for the frontend.
+- **/apps/server**: Contains the Express.js application responsible for the backend.
+- **/packages/tsconfig**: Contains shared configurations (e.g., Eslint, Tailwind, Turbopack) to enforce consistency across the monorepo.
+- **/packages/eslint-config**: Contains shared Eslint configurations for the monorepo. 
+- **/packages/types**: Contains shared types (e.g. responses, api clients, etc).
+- **/packages/ui**: Houses the shared UI components built with shadcn and Tailwind CSS.
+- **/packages/utils**: Contains shared utils methods that will be used in multiple apps or packages.
 
-To shutdown all running containers:
+## Getting Started
 
-```
-# Stop running containers started by docker-compse
- docker-compose -f docker-compose.yml down
-```
+1. **Clone the repository**
 
-### Remote Caching
+   ```bash
+   git clone https://github.com/ivesfurtado/next-express-turborepo.git
+   cd next-express-turborepo
+   ```
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+2. **Install Dependencies**
 
-This example includes optional remote caching. In the Dockerfiles of the apps, uncomment the build arguments for `TURBO_TEAM` and `TURBO_TOKEN`. Then, pass these build arguments to your Docker build.
+   Use `pnpm` package manager:
 
-You can test this behavior using a command like:
+   ```bash
+   pnpm install
+   ```
 
-`docker build -f apps/web/Dockerfile . --build-arg TURBO_TEAM=“your-team-name” --build-arg TURBO_TOKEN=“your-token“ --no-cache`
+3. **Run the Development Server**
 
-### Utilities
+   You can start both the web and server services with Turbopack's parallelism:
 
-This Turborepo has some additional tools already setup for you:
+   ```bash
+   pnpm dev
+   ```
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Jest](https://jestjs.io) test runner for all things JavaScript
-- [Prettier](https://prettier.io) for code formatting
+   - Frontend is served at `http://localhost:3000` (Next.js)
+   - Backend is served at `http://localhost:3001` (Express.js)
+
+4. **Build for Production**
+
+   To build the frontend and backend for production, run:
+
+   ```bash
+   pnpm build
+   ```
+
+   This will create optimized builds for both the frontend and backend services.
+
+## Tools and Technologies
+
+- **Next.js**: Provides the frontend framework with server-side rendering, API routes, and static generation.
+- **Express.js**: Handles the backend, including API endpoints and server logic.
+- **Turbopack**: Ensures fast builds and optimal performance for monorepos.
+- **Tailwind CSS**: Simplifies styling with a utility-first approach.
+- **shadcn**: Offers pre-designed components for building clean and modern UIs.
+- **ESLint**: Enforces code standards by handling linting and formatting across the project.
+
+## Deployment
+
+You can deploy your full-stack monorepo using platforms like Vercel for the frontend and any Node.js hosting service for the backend (e.g., Heroku, AWS, DigitalOcean).
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request if you have suggestions or improvements.
+
+## License
+
+This project is licensed under the MIT License. Feel free to use and modify it according to your needs.
+
+---
+
+For further details on building and setting up this monorepo, check out the original tutorial on [The Halftime Code](https://www.thehalftimecode.com/building-a-full-stack-monorepo-with-turbopack-biome-next-js-express-js-tailwind-css-and-shadcn/).

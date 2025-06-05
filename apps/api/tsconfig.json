@@ -1,10 +1,10 @@
 {
-  "extends": "@repo/typescript-config/base.json",
+  "extends": "@monorepo/tsconfig/express.json",
   "compilerOptions": {
-    "lib": ["ES2015"],
-    "outDir": "./dist",
-    "rootDir": "./src"
+    "outDir": "./dist"
   },
-  "exclude": ["node_modules"],
-  "include": ["src"]
+  "include": [
+    "src/**/*.ts",
+    "eslint.config.mjs"
+  ],
 }
