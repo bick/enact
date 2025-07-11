@@ -1,0 +1,5 @@
+onlyBuiltDependencies:
+  - '@tailwindcss/oxide'
+  - '@vercel/git-hooks'
+  - sharp
+  - unrs-resolver

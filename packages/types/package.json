@@ -1,0 +1,19 @@
+{
+  "name": "@enact/types",
+  "author": "Ives Furtado | @ivesfurtado",
+  "version": "1.0.0",
+  "keywords": [],
+  "license": "ISC",
+  "description": "",
+  "scripts": {
+    "lint": "eslint .",
+    "check-types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@enact/tsconfig": "workspace:*",
+    "@enact/eslint-config": "workspace:*"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}
